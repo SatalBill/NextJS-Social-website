@@ -1,0 +1,80 @@
+.emoji-text-field {
+    height: 100%;
+    position: relative;
+    text-align: center;
+
+    input, textarea {
+        width: 95%;
+        height: 95%;
+        margin: 0;
+        padding: 5px 20px 5px 10px;
+        font-size: 14px;
+        border-radius: 3px;
+        resize: none;
+        color: #86d186;
+    }
+
+    &.picker-hidden {
+        .emoji-picker {
+            display: none;
+            opacity: 0;
+            visibility: none;
+        }
+    }
+
+    &.picker-shown {
+        .emoji-trigger {
+            opacity: 1;
+
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+
+    .emoji-picker {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        bottom: 30px;
+    }
+
+    .emoji-trigger {
+        background: transparent url('./svg/trigger-transparent.svg');
+        background-size: 16px 16px;
+        height: 16px;
+        width: 16px;
+        position: absolute;
+        z-index: 1;
+        top: 9px;
+        right: 12px;
+        opacity: .5;
+        transition: opacity .3s;
+
+        :after {
+            background: transparent url('./svg/trigger-opaque.svg');
+            content: '';
+            background-size: 16px 16px;
+            height: 16px;
+            width: 16px;
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            opacity: 0;
+            transition: opacity .4s;
+            transition-delay: .2s;
+        }
+
+        &:hover {
+            opacity: 1;
+            outline: none;
+            &:after {
+                opacity: 1;
+                outline: none;
+            }
+        }
+    }
+}
+.emoji-picker-react {
+    width: 100% !important;
+}
